@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="500" pageHeight="350" orientation="Landscape" columnWidth="460" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="250c5e98-5bd7-4b78-94c8-c272b1d8f239">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nip" class="java.lang.String"/>
+	<parameter name="logos" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[SELECT
+     
+     guru.`nip` AS guru_nip,
+     guru.`nama_guru` AS guru_nama_guru,
+     guru.`tempat_lahir` AS guru_tempat_lahir,
+     guru.`tanggal_lahir` AS guru_tanggal_lahir,
+     guru.`jk` AS guru_jk,
+     guru.`alamat` AS guru_alamat,
+     guru.`no_hp` AS guru_no_hp,
+     guru.`status` AS guru_status,
+     guru.`agama` AS guru_agama,
+     guru.`tahun_ajaran` AS guru_tahun_ajaran
+FROM
+     `guru` guru
+WHERE
+     guru.nip = $P{nip}]]>
+	</queryString>
+	<field name="guru_nip" class="java.lang.Integer"/>
+	<field name="guru_nama_guru" class="java.lang.String"/>
+	<field name="guru_tempat_lahir" class="java.lang.String"/>
+	<field name="guru_tanggal_lahir" class="java.sql.Date"/>
+	<field name="guru_jk" class="java.lang.String"/>
+	<field name="guru_alamat" class="java.lang.String"/>
+	<field name="guru_no_hp" class="java.lang.String"/>
+	<field name="guru_status" class="java.lang.String"/>
+	<field name="guru_agama" class="java.lang.String"/>
+	<field name="guru_tahun_ajaran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="460" height="65" forecolor="#000000" backcolor="#FF3333" uuid="94feb50b-0ae4-4d5d-91ae-4ff8227da1df"/>
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<staticText>
+					<reportElement x="84" y="5" width="318" height="34" forecolor="#FFFFFF" uuid="32844314-0503-48ff-bd1e-1da6ddc8e3de"/>
+					<textElement textAlignment="Center">
+						<font size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[biMBA AIUEO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="84" y="39" width="318" height="23" forecolor="#FFFFFF" uuid="4c5846b8-853c-49f7-883b-6149dddc4e12"/>
+					<textElement textAlignment="Center">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Perum Griya Telaga Permai Blok D-15 No. 1 Rt.009/Rw.019, Kel. Cilangkap, Kec. Tapos Depok, Jawa Barat 16415]]></text>
+				</staticText>
+				<image>
+					<reportElement x="3" y="1" width="77" height="64" uuid="9fdb6f80-59b9-4110-a60a-02195dcf8e42"/>
+					<imageExpression><![CDATA[$P{logos}]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="243" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="-2" width="460" height="244" backcolor="#FF6600" uuid="9808fd75-d37e-4ccc-9096-967ccfe23a04"/>
+				<staticText>
+					<reportElement x="0" y="8" width="460" height="28" forecolor="#FFFFFF" uuid="446a4bb1-7f11-4b1d-82a1-7d2c63b913dd"/>
+					<textElement textAlignment="Center">
+						<font size="18" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Kartu Mengajar]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="3" width="460" height="1" uuid="cc94e92b-b842-43e3-b99e-b9c60d54f4f3"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#FFFFFF"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="39" width="460" height="1" uuid="abbaf1cc-56b0-43a0-84af-3fb0511f612a"/>
+					<graphicElement>
+						<pen lineWidth="2.0" lineColor="#FFFFFF"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="107" y="51" width="120" height="20" forecolor="#FFFFFF" uuid="ad8b5e0a-811e-435e-ab31-5303dea6bedc"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_nip}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="71" width="120" height="20" forecolor="#FFFFFF" uuid="e8b7cecc-c718-47e7-bf6a-49dbeb19f1c7"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_nama_guru}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="91" width="120" height="20" forecolor="#FFFFFF" uuid="119e41c6-7650-4729-85b7-99ae0b5b414e"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_tempat_lahir}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="107" y="111" width="120" height="20" forecolor="#FFFFFF" uuid="1809f703-eb7e-4849-b5cc-2f80a34dcfe1"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format($F{guru_tanggal_lahir})]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="12" y="51" width="68" height="20" forecolor="#FFFFFF" uuid="06a599eb-7210-4af6-b260-7a336b46a301"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[No. Guru]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="71" width="69" height="20" forecolor="#FFFFFF" uuid="26db7899-56e1-4fa4-939b-cd147e12814d"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Nama Guru]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="91" width="80" height="20" forecolor="#FFFFFF" uuid="d70966a8-849a-4c7a-b8a2-c1f778c2eea9"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tempat Lahir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="12" y="111" width="80" height="20" forecolor="#FFFFFF" uuid="b292ac40-c10a-43a1-b49d-10595bc64c22"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Tanggal Lahir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="97" y="51" width="4" height="20" forecolor="#FFFFFF" uuid="a1a8469b-c484-404f-b277-00b962a2bdef"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="97" y="71" width="4" height="20" forecolor="#FFFFFF" uuid="24ead6ef-e0b5-4aa9-a012-3d91ff730cb9"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="97" y="91" width="4" height="20" forecolor="#FFFFFF" uuid="e7600bbd-c04d-4bd2-a425-d806041f8ae3"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="97" y="111" width="4" height="20" forecolor="#FFFFFF" uuid="35470f1f-d6d7-4f05-99f6-741af8919c14"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="337" y="51" width="100" height="20" forecolor="#FFFFFF" uuid="443b0d15-9501-477c-b42e-6ea7b8e0518c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_jk}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="337" y="71" width="100" height="40" forecolor="#FFFFFF" uuid="559ea39e-8cfb-4d01-ba15-6516b2dfe17f"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_alamat}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="337" y="111" width="100" height="20" forecolor="#FFFFFF" uuid="90134025-2459-4008-88d4-ffd482114016"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guru_no_hp}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="243" y="51" width="75" height="20" forecolor="#FFFFFF" uuid="d25d020e-c41c-414a-8d45-0e84840d436e"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Jenis Kelamin]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="243" y="71" width="75" height="20" forecolor="#FFFFFF" uuid="9c3bb3fb-3042-4fc1-a558-e2384fe4a52a"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[Alamat]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="325" y="51" width="4" height="20" forecolor="#FFFFFF" uuid="b93e55a9-dcab-4d20-9005-537e5173a958"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="325" y="71" width="4" height="20" forecolor="#FFFFFF" uuid="2ae175c5-22e9-4367-ab6f-36b24b045939"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="243" y="111" width="75" height="20" forecolor="#FFFFFF" uuid="19d5b82a-21ad-46a3-bab1-cf8e3c1c0d46"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[No HP]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="325" y="111" width="4" height="20" forecolor="#FFFFFF" uuid="86f433b9-002c-4d66-8cf4-b11406426764"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="245" y="167" width="215" height="20" forecolor="#FFFFFF" uuid="253361be-9bde-4180-a868-4b2fde8b4d85"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Ketua Pelaksana biMBA AIUEO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="245" y="224" width="215" height="20" forecolor="#FFFFFF" uuid="343535e6-028c-4c98-91ae-57007200c545"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[TIA]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="333" y="147" width="127" height="20" forecolor="#FFFFFF" uuid="c56d6fce-d51e-41ab-8f1a-1f9bd23be35d"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="293" y="147" width="40" height="20" forecolor="#FFFFFF" uuid="71ccf30d-c91a-49a7-9200-8b95ee420c61"/>
+					<textElement textAlignment="Center">
+						<font size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Depok,]]></text>
+				</staticText>
+				<frame>
+					<reportElement mode="Opaque" x="31" y="142" width="100" height="97" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="69709048-8093-4a48-8f97-41f78f58fdbc"/>
+					<staticText>
+						<reportElement x="0" y="27" width="100" height="20" uuid="e7c26b4e-1335-4b24-8d50-8b9049dad99d"/>
+						<textElement textAlignment="Center">
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Foto]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="54" width="100" height="20" uuid="3080b6ec-0405-42e9-9065-bdb48158dbe7"/>
+						<textElement textAlignment="Center">
+							<font size="12" isBold="true"/>
+						</textElement>
+						<text><![CDATA[3x4]]></text>
+					</staticText>
+				</frame>
+			</frame>
+		</band>
+	</columnHeader>
+</jasperReport>

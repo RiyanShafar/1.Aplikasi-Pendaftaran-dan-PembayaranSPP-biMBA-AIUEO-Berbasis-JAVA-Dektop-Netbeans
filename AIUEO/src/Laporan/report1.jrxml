@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a3ffde5c-baee-4fe5-9ad7-5aa1a91549de">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     siswa.`nis` AS siswa_nis,
+     siswa.`nama` AS siswa_nama,
+     siswa.`tempat_lahir` AS siswa_tempat_lahir,
+     siswa.`tanggal_lahir` AS siswa_tanggal_lahir,
+     siswa.`jk` AS siswa_jk,
+     siswa.`alamat` AS siswa_alamat,
+     siswa.`kelas` AS siswa_kelas,
+     siswa.`semester` AS siswa_semester,
+     siswa.`tahun_ajaran` AS siswa_tahun_ajaran
+FROM
+     `siswa` siswa]]>
+	</queryString>
+	<field name="siswa_nis" class="java.lang.Integer"/>
+	<field name="siswa_nama" class="java.lang.String"/>
+	<field name="siswa_tempat_lahir" class="java.lang.String"/>
+	<field name="siswa_tanggal_lahir" class="java.sql.Date"/>
+	<field name="siswa_jk" class="java.lang.String"/>
+	<field name="siswa_alamat" class="java.lang.String"/>
+	<field name="siswa_kelas" class="java.lang.String"/>
+	<field name="siswa_semester" class="java.lang.String"/>
+	<field name="siswa_tahun_ajaran" class="java.lang.String"/>
+	<variable name="siswa_nis_SUM" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{siswa_nis}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="168">
+			<line>
+				<reportElement x="0" y="152" width="328" height="1" uuid="0285c014-6ab9-422b-a0bd-7595987acc94"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<image>
+				<reportElement x="15" y="19" width="157" height="133" uuid="df2ceb2d-b907-49cf-846a-59c837bac16b"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="39" y="2" width="100" height="20" uuid="88464f6e-f243-4768-aba9-49320796b0c8"/>
+				<text><![CDATA[siswa_nis]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="7" width="100" height="20" uuid="bd1c293b-816b-4fad-9cb6-6502ebbed984"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{siswa_nis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="8" width="100" height="20" uuid="4275039c-5727-4751-82b4-9a13d02953e1"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="254" y="6" width="104" height="20" uuid="f0299d76-f354-4318-992d-f37ebdd149fb"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="385" y="8" width="80" height="20" uuid="55c1393a-a02a-4759-8840-bae2da8649c7"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="465" y="8" width="40" height="20" uuid="82c293d1-0320-48f2-a9a7-bec2c6596fd2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField evaluationTime="Auto" pattern="#,##0.00%">
+				<reportElement x="280" y="3" width="153" height="20" uuid="6d43b2e5-b1b0-4cab-a7c1-539a0e72e6ff"/>
+				<textFieldExpression><![CDATA[new Double( $F{siswa_nis}.doubleValue() / $V{siswa_nis_SUM}.doubleValue() )]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

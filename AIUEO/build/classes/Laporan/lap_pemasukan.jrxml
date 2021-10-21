@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1420" pageHeight="350" columnWidth="1380" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isIgnorePagination="true" uuid="0b9eaa95-dee1-4799-a104-342228630d9c">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tgl1" class="java.lang.String"/>
+	<parameter name="tgl2" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[SELECT
+     administrasi.`no_pembayaran` AS administrasi_no_pembayaran,
+     administrasi.`nis` AS administrasi_nis,
+     administrasi.`nama_siswa` AS administrasi_nama_siswa,
+     administrasi.`kelas` AS administrasi_kelas,
+     
+     administrasi.`tahun_ajaran` AS administrasi_tahun_ajaran,
+     administrasi.`tanggal_pembayaran` AS administrasi_tanggal_pembayaran,
+     administrasi.`jenis_pembayaran` AS administrasi_jenis_pembayaran,
+     administrasi.`biaya` AS administrasi_biaya,
+     administrasi.`id_petugas` AS administrasi_id_petugas,
+     administrasi.`nama_petugas` AS administrasi_nama_petugas
+FROM
+     `administrasi` administrasi
+where
+administrasi.tanggal_pembayaran between $P{tgl1} and $P{tgl2}]]>
+	</queryString>
+	<field name="administrasi_no_pembayaran" class="java.lang.Integer"/>
+	<field name="administrasi_nis" class="java.lang.Integer"/>
+	<field name="administrasi_nama_siswa" class="java.lang.String"/>
+	<field name="administrasi_kelas" class="java.lang.String"/>
+	<field name="administrasi_tahun_ajaran" class="java.lang.String"/>
+	<field name="administrasi_tanggal_pembayaran" class="java.sql.Date"/>
+	<field name="administrasi_jenis_pembayaran" class="java.lang.String"/>
+	<field name="administrasi_biaya" class="java.lang.Integer"/>
+	<field name="administrasi_id_petugas" class="java.lang.Integer"/>
+	<field name="administrasi_nama_petugas" class="java.lang.String"/>
+	<variable name="administrasi_biaya_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{administrasi_biaya}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="110" splitType="Stretch">
+			<staticText>
+				<reportElement x="130" y="2" width="1083" height="32" uuid="caf86252-bd7b-4e2f-a157-36b737de5f82"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Laporan Pemasukan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="34" width="1083" height="32" uuid="9c2f7058-2770-4ecd-ad2f-f9e39cbef90c"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[biMBA AIUEO DEPOK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="66" width="1083" height="23" uuid="dc4f3084-c599-403b-8203-b0107a312bdd"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Perum Griya Telaga Permai Blok D-15 No. 1 Rt.009/Rw.019, Kel. Cilangkap, Kec. Tapos Depok, Jawa Barat 16415]]></text>
+			</staticText>
+			<image>
+				<reportElement x="8" y="8" width="100" height="94" uuid="f468c0d8-c120-42f9-b0a3-b63a7b56d364"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="621" y="90" width="119" height="20" uuid="c7229eb1-a7a1-4f12-8a63-694a200bec95"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telp.0815 8650 5372]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="56" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="22" width="100" height="20" uuid="fb49cdb4-108f-47de-97b9-88f8af5b9541"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Peserta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="22" width="100" height="20" uuid="d944c959-5c35-441e-9a6a-1171f6868684"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="22" width="100" height="20" uuid="943d3a58-c699-49ba-9ace-779b45cefecf"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="427" y="22" width="100" height="20" uuid="50e7e339-e888-4c3f-981e-d6a55f6cc839"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tahun Ajaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="578" y="22" width="169" height="20" uuid="55450d7a-e3ac-40fe-894e-5a8c5cb1213f"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="796" y="22" width="115" height="20" uuid="02ee925b-b38f-481f-a5b6-3474a674cd26"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jenis Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="961" y="22" width="100" height="20" uuid="c2b3363a-cf68-4a6d-9116-3aad5747a4f3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Biaya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1113" y="22" width="100" height="20" uuid="86f37d8d-d567-4df3-914e-3beffbd8321a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Id Petugas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1257" y="22" width="100" height="20" uuid="a1376cb0-7552-4411-923d-3ad3553f1001"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Petugas]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="10" width="1380" height="1" uuid="2005257d-0728-41f6-8fc6-ab66f59f1596"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-1" y="51" width="1380" height="1" uuid="9d62a152-1422-41a1-9ef6-3f191ee3ec5a"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="100" height="20" uuid="0a559b96-6442-4f06-b26b-3ca94279e6e0"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_nis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="158" y="0" width="100" height="20" uuid="b19d2f10-5bf5-45e2-80a7-49c3efbf4800"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_nama_siswa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="0" width="100" height="20" uuid="df02f20b-1675-40ad-b386-0524211d663a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="100" height="20" uuid="f6617554-fbdf-457d-ad6f-f54d2e1ac699"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_tahun_ajaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="578" y="0" width="169" height="20" uuid="48ce8bb8-6d73-4d2d-9782-ffcd77c2fc44"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd MMMMM yyyy",new java.util.Locale("id")).format($F{administrasi_tanggal_pembayaran})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="796" y="0" width="115" height="20" uuid="1d1c02eb-3363-4f99-a3cb-d0b7a7855c8f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_jenis_pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="961" y="0" width="100" height="20" uuid="50927aca-a0d2-4835-b99f-c2ee8d2d69f2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_biaya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1113" y="0" width="100" height="20" uuid="7bec0ee7-2257-4e40-a2a2-c42c163607a7"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_id_petugas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1257" y="0" width="100" height="20" uuid="4ce467c7-42ed-4b1f-b412-74b67d13270d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{administrasi_nama_petugas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="144" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="1182" y="21" width="165" height="20" uuid="d5a73b0f-d6ca-4819-a917-94d252a756bc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("EEEE dd MMMMM yyyy",new java.util.Locale("id")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1039" y="52" width="338" height="20" uuid="f2ca0520-04ce-4d70-bc31-7e5f845d2439"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kopda biMBA AIUEO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1142" y="21" width="40" height="20" uuid="9d449f73-05f3-464d-bb49-4e772374a8fd"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Depok,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1035" y="113" width="336" height="20" uuid="2f3ad1b5-1760-4bfa-8928-8ca62b30f799"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[LALA]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="819" y="11" width="115" height="20" uuid="e266ee1d-9567-46f3-bbce-f44146ab554a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Pemasukan]]></text>
+			</staticText>
+			<textField pattern="#,##0;-#,##0">
+				<reportElement x="961" y="11" width="100" height="20" uuid="e0adca57-fd78-4d51-a2db-13a8c148fd5f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{administrasi_biaya_1}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="5" width="1380" height="1" uuid="af42c108-a686-4294-bb96-eb16ccad02c0"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="3" y="35" width="1377" height="1" uuid="6ee5abbe-b583-4d11-8206-b1c07f5958cc"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
